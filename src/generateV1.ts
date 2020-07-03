@@ -494,7 +494,7 @@ export const generateV1 = async ({ lastBatonTxid, mintVaultAddressT0 }: { lastBa
 
     // set nSequence to enable CLTV for all inputs, and set transaction Locktime
     unsignedMintHex = txnHelpers.enableInputsCLTV(unsignedMintHex);
-    unsignedMintHex = txnHelpers.setTxnLocktime(unsignedMintHex, bchBlockHeight);
+    unsignedMintHex = txnHelpers.setTxnLocktime(unsignedMintHex, bchBlockHeight + 1);
 
     // Build scriptSig
     const batonTxo = baton.slpBatonUtxos[process.env.TOKEN_ID_V1!][0];
